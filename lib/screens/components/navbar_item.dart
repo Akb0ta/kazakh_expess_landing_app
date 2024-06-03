@@ -13,11 +13,12 @@ class NavBarItem extends StatefulWidget {
 }
 
 class _NavBarItemState extends State<NavBarItem> {
-  Color selected = Colors.grey[600]!;
-  Color notSelected = Colors.grey[600]!;
-  Color color = Colors.grey[600]!;
   @override
   Widget build(BuildContext context) {
+    var width = MediaQuery.of(context).size.width;
+    Color selected = width > 800 ? Colors.grey[600]! : Colors.white;
+    Color notSelected = width > 800 ? Colors.grey[600]! : Colors.white;
+    Color color = width > 800 ? Colors.grey[600]! : Colors.white;
     return MouseRegion(
       onEnter: (value) {
         setState(() {

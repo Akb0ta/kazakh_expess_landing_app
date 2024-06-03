@@ -1,5 +1,6 @@
 import 'package:bus_landing_app/const/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ContainerOne extends StatefulWidget {
   const ContainerOne({super.key});
@@ -51,16 +52,21 @@ class _ContainerOneState extends State<ContainerOne> {
                 SizedBox(
                   height: 15,
                 ),
-                Container(
-                  width: 140,
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(5)),
-                  padding: EdgeInsets.all(10),
-                  child: Center(
-                    child: Text(
-                      "Download App",
-                      style: TextStyle(color: AppColors.primary),
+                InkWell(
+                  onTap: () {
+                    launch("https://www.apple.com/store");
+                  },
+                  child: Container(
+                    width: 140,
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(5)),
+                    padding: EdgeInsets.all(10),
+                    child: Center(
+                      child: Text(
+                        "Download App",
+                        style: TextStyle(color: AppColors.primary),
+                      ),
                     ),
                   ),
                 )
