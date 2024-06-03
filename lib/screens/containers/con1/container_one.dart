@@ -20,8 +20,8 @@ class _ContainerOneState extends State<ContainerOne> {
       padding: EdgeInsets.only(
           top: 40,
           bottom: 40,
-          right: (width > 400) ? 10 : 20,
-          left: (width > 400) ? 10 : 20),
+          right: (width > 440) ? 10 : 20,
+          left: (width > 440) ? 10 : 20),
       color: AppColors.primary,
       width: MediaQuery.of(context).size.width,
       child: Row(

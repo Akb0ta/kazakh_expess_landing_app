@@ -22,8 +22,8 @@ class _ContainerFiveState extends State<ContainerFive> {
       padding: EdgeInsets.only(
           top: 40,
           bottom: 40,
-          right: (width > 400) ? 60 : 20,
-          left: (width > 400) ? 60 : 20),
+          right: (width > 440) ? 60 : 20,
+          left: (width > 440) ? 60 : 20),
       color: AppColors.kPrimaryWhite,
       width: MediaQuery.of(context).size.width,
       child: Row(

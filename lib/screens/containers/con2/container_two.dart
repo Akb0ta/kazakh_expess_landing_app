@@ -59,7 +59,7 @@ class ContainerTwo extends StatelessWidget {
                 ? 0.9
                 : (MediaQuery.of(context).size.width > 915)
                     ? 1
-                    : (MediaQuery.of(context).size.width < 400)
+                    : (MediaQuery.of(context).size.width < 440)
                         ? 1
                         : (MediaQuery.of(context).size.width < 800)
                             ? 1
@@ -70,7 +70,7 @@ class ContainerTwo extends StatelessWidget {
                     ? 4
                     : (MediaQuery.of(context).size.width > 900)
                         ? 3
-                        : (MediaQuery.of(context).size.width < 400)
+                        : (MediaQuery.of(context).size.width < 440)
                             ? 1
                             : 2,
             children: List.generate(data.length, (index) {

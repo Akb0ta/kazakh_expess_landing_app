@@ -12,7 +12,7 @@ class ContainerSeven extends StatelessWidget {
       padding: EdgeInsets.all(20),
       child: Row(
         children: [
-          (MediaQuery.of(context).size.width < 400)
+          (MediaQuery.of(context).size.width < 440)
               ? SizedBox()
               : Container(
                   width: MediaQuery.of(context).size.width / 3.4,
@@ -22,7 +22,7 @@ class ContainerSeven extends StatelessWidget {
                           image: AssetImage('assets/images/background1.png'))),
                 ),
           Container(
-            width: (MediaQuery.of(context).size.width < 400)
+            width: (MediaQuery.of(context).size.width < 440)
                 ? MediaQuery.of(context).size.width
                 : MediaQuery.of(context).size.width / 3,
             decoration: BoxDecoration(
@@ -50,33 +50,38 @@ class ContainerSeven extends StatelessWidget {
                 SizedBox(
                   height: 15,
                 ),
-                Text(
-                  'Malesuada ut aliquam at ac est nisi, interdum etiam dignissim.Risus elit et fringilla habitant ut facilisi',
-                  style: TextStyle(
-                    color: Colors.white,
+                Center(
+                  child: Text(
+                    'Malesuada ut aliquam at ac est nisi, interdum etiam dignissim.Risus elit et fringilla habitant ut facilisi',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
                   ),
                 ),
                 SizedBox(
                   height: 15,
                 ),
-                Container(
-                  width: 140,
-                  padding: EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(15),
-                      border: Border.all(color: AppColors.primary)),
-                  child: Center(
-                    child: Text(
-                      'Download',
-                      style: TextStyle(color: AppColors.primary),
+                Center(
+                  child: Container(
+                    width: 140,
+                    padding: EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(15),
+                        border: Border.all(color: AppColors.primary)),
+                    child: Center(
+                      child: Text(
+                        'Download',
+                        style: TextStyle(color: AppColors.primary),
+                      ),
                     ),
                   ),
                 )
               ]),
             ),
           ),
-          (MediaQuery.of(context).size.width < 400)
+          (MediaQuery.of(context).size.width < 440)
               ? SizedBox()
               : Container(
                   width: MediaQuery.of(context).size.width / 3.42,
