@@ -12,15 +12,19 @@ class ContainerSeven extends StatelessWidget {
       padding: EdgeInsets.all(20),
       child: Row(
         children: [
+          (MediaQuery.of(context).size.width < 400)
+              ? SizedBox()
+              : Container(
+                  width: MediaQuery.of(context).size.width / 3.4,
+                  decoration: BoxDecoration(
+                      color: AppColors.primary,
+                      image: DecorationImage(
+                          image: AssetImage('assets/images/background1.png'))),
+                ),
           Container(
-            width: MediaQuery.of(context).size.width / 3.4,
-            decoration: BoxDecoration(
-                color: AppColors.primary,
-                image: DecorationImage(
-                    image: AssetImage('assets/images/background1.png'))),
-          ),
-          Container(
-            width: MediaQuery.of(context).size.width / 3,
+            width: (MediaQuery.of(context).size.width < 400)
+                ? MediaQuery.of(context).size.width
+                : MediaQuery.of(context).size.width / 3,
             decoration: BoxDecoration(
               color: AppColors.primary,
             ),
@@ -72,13 +76,15 @@ class ContainerSeven extends StatelessWidget {
               ]),
             ),
           ),
-          Container(
-            width: MediaQuery.of(context).size.width / 3.42,
-            decoration: BoxDecoration(
-                color: AppColors.primary,
-                image: DecorationImage(
-                    image: AssetImage('assets/images/background1.png'))),
-          ),
+          (MediaQuery.of(context).size.width < 400)
+              ? SizedBox()
+              : Container(
+                  width: MediaQuery.of(context).size.width / 3.42,
+                  decoration: BoxDecoration(
+                      color: AppColors.primary,
+                      image: DecorationImage(
+                          image: AssetImage('assets/images/background1.png'))),
+                ),
         ],
       ),
     );
