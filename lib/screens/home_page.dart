@@ -40,14 +40,15 @@ class _MyAppState extends State<MyApp> {
     if (renderObject != null && _controller.hasClients) {
       var offset = renderObject.semanticBounds.shortestSide;
       if (index == 4) {
-        offset = _controller.position.maxScrollExtent - 80;
+        offset = _controller.position.maxScrollExtent - 140;
       }
       if (index == 3) {
-        offset = renderObject.semanticBounds.longestSide;
+        offset = renderObject.semanticBounds.longestSide - 100;
       }
       if (index == 1) {
         offset = 0;
       }
+
       _controller.animateTo(offset,
           duration: Duration(milliseconds: 500), curve: Curves.easeInOut);
     }
@@ -92,68 +93,71 @@ class _MyAppState extends State<MyApp> {
       ),
     ];
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        title: Stack(
+          children: [
+            Container(
+              color: Colors.white,
+            ),
+            AnimatedContainer(
+              margin: EdgeInsets.only(top: 79.0),
+              duration: Duration(milliseconds: 375),
+              curve: Curves.ease,
+              height: (width < 800.0) ? collapsableHeight : 0.0,
+              width: double.infinity,
+              color: AppColors.primary,
+              child: SingleChildScrollView(
+                child: Column(
+                  children: navBarItems,
+                ),
+              ),
+            ),
+            Container(
+              color: AppColors.kPrimaryWhite,
+              height: 80.0,
+              padding: EdgeInsets.symmetric(horizontal: 24.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  SizedBox(
+                    width: 180,
+                    child: Image.asset('assets/images/header-icon.png'),
+                  ),
+                  LayoutBuilder(builder: (context, constraints) {
+                    if (width < 800.0) {
+                      return NavBarButton(
+                        onPressed: () {
+                          if (collapsableHeight == 0.0) {
+                            setState(() {
+                              collapsableHeight = 240.0;
+                            });
+                          } else if (collapsableHeight == 240.0) {
+                            setState(() {
+                              collapsableHeight = 0.0;
+                            });
+                          }
+                        },
+                      );
+                    } else {
+                      return Row(
+                        children: navBarItems,
+                      );
+                    }
+                  })
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
       backgroundColor: AppColors.kPrimaryBackgroundColor,
       body: SingleChildScrollView(
         controller: _controller,
         child: Column(
           children: [
-            Container(
-              child: Stack(
-                children: [
-                  Container(
-                    color: Colors.white,
-                  ),
-                  AnimatedContainer(
-                    margin: EdgeInsets.only(top: 79.0),
-                    duration: Duration(milliseconds: 375),
-                    curve: Curves.ease,
-                    height: (width < 800.0) ? collapsableHeight : 0.0,
-                    width: double.infinity,
-                    color: AppColors.primary,
-                    child: SingleChildScrollView(
-                      child: Column(
-                        children: navBarItems,
-                      ),
-                    ),
-                  ),
-                  Container(
-                    color: AppColors.kPrimaryWhite,
-                    height: 80.0,
-                    padding: EdgeInsets.symmetric(horizontal: 24.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        SizedBox(
-                          width: 180,
-                          child: Image.asset('assets/images/header-icon.png'),
-                        ),
-                        LayoutBuilder(builder: (context, constraints) {
-                          if (width < 800.0) {
-                            return NavBarButton(
-                              onPressed: () {
-                                if (collapsableHeight == 0.0) {
-                                  setState(() {
-                                    collapsableHeight = 240.0;
-                                  });
-                                } else if (collapsableHeight == 240.0) {
-                                  setState(() {
-                                    collapsableHeight = 0.0;
-                                  });
-                                }
-                              },
-                            );
-                          } else {
-                            return Row(
-                              children: navBarItems,
-                            );
-                          }
-                        })
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
+            //this container is my
+
             ContainerOne(
               key: _container1Key,
             ),
