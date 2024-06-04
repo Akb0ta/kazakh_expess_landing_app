@@ -15,8 +15,6 @@ class _ContainerOneState extends State<ContainerOne> {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
-    print(width);
-    double height = MediaQuery.of(context).size.height;
     return Container(
       padding: EdgeInsets.only(
           top: 40,
